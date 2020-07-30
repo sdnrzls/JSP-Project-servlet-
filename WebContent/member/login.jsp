@@ -3,13 +3,13 @@
     <%@include file="../include/header.jsp" %>
    
     <div class="container">
-  <form action="login.me" method="post">
+  	<form action="login.me" method="post">
     <div class="form-group">
-      <label for="userid">Email:</label>
+      <label for="userid">id</label>
       <input type="text" class="form-control" id="userid" placeholder="Enter id" name="userid">
     </div>
     <div class="form-group">
-      <label for="pwd">Password:</label>
+      <label for="pwd">Password</label>
       <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
     </div>
     <div class="form-group form-check">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,21 +18,42 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand/logo -->
   <h3>
-  <a class="navbar-brand" href="#">LOGO </a>
+  <a class="navbar-brand" href="logo.jsp">R.U READY</a>
   </h3>
 
   
   <!-- Links -->
   <ul class="navbar-nav">
-    <li class="nav-item">
+  <c:choose>
+  <c:when test="${empty sessionScope.userid}">
+  <li class="nav-item">
       <a class="nav-link" href="/project/member/login.me">로그인</a>
-    </li>
-    <li class="nav-item">
+      </li>
+      <li class="nav-item">
       <a class="nav-link" href="/project/member/insert.me">회원가입</a>
     </li>
+    
+  </c:when>
+ 	<c:otherwise>
+ 	<li class="nav-item">
+      <a class="nav-link" href="/project/member/logout.me">로그아웃</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/project/member/insert.me">정보변경</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/project/member/delete.me">회원탈퇴</a>
+    </li>
+ 	</c:otherwise>
+  </c:choose>
+ 
     <li class="nav-item">
       <a class="nav-link" href="/project/board/board.me">게시판</a>
     </li>
   </ul>
+  <c:if test="${not empty sessionScope.userid}"/>
+  	<span class = "navbar-text">
+  	(${sessionScope.userid }님 반갑습니다.)
+  	</span>
 </nav>
 
